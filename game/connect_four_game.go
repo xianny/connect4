@@ -107,7 +107,7 @@ func (c *ConnectFourGame) evalWin(player int) bool {
 
 func (c *ConnectFourGame) Play() {
 	c.board.setup()
-	for currentPlayer := Player1; c.evalWin(currentPlayer); currentPlayer = switchPlayer(currentPlayer) {
+	for currentPlayer := Player1; c.evalWin(switchPlayer(currentPlayer)); currentPlayer = switchPlayer(currentPlayer) {
 		c.Move(currentPlayer)
 	}
 }
