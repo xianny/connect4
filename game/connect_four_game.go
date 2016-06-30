@@ -63,7 +63,7 @@ func (c *ConnectFourBoard) hasWon(player int) bool {
 		(diagonal2 & (diagonal2 >> 16))) > 0 // check  \
 }
 
-func (c *ConnectFourBoard) validMove(move uint8) bool {
+func (c *ConnectFourBoard) ValidMove(move uint8) bool {
 	return move >= 0 && move < Width && c.height[move] < Height
 }
 
@@ -88,7 +88,7 @@ func (c *ConnectFourGame) GetPlayer(player int) Player {
 func (c *ConnectFourGame) Move(player int) {
 	boardCopy := c.board
 	move := c.GetPlayer(player).Move(boardCopy)
-	if !c.board.validMove(move) {
+	if !c.board.ValidMove(move) {
 		panic("Invalid move:" + string(move))
 	}
 
